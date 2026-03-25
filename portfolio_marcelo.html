@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Marcelo Cambraia | Software Developer</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0d0d14;--bg2:#12121e;--bg3:#1a1a2e;
+  --cyan:#00e5ff;--purple:#a855f7;--green:#39ff14;
+  --text:#e2e8f0;--muted:#94a3b8;--card:#16213e;--border:#2d2d4e;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;overflow-x:hidden}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--purple);border-radius:3px}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,20,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}
+.nav-logo{color:var(--cyan);font-size:1.1rem;font-weight:700}
+.nav-logo span{color:var(--purple)}
+nav ul{list-style:none;display:flex;gap:2rem}
+nav ul a{color:var(--muted);text-decoration:none;font-size:.85rem;transition:color .3s}
+nav ul a:hover{color:var(--cyan)}
+
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:6rem 2rem 2rem}
+.matrix-bg{position:absolute;inset:0;overflow:hidden;opacity:.07}
+.matrix-col{position:absolute;top:-100%;font-size:14px;color:var(--green);animation:fall linear infinite;line-height:1.4}
+@keyframes fall{to{top:110%}}
+.hero-content{position:relative;z-index:2;max-width:820px;width:100%}
+.hero-greeting{color:var(--cyan);font-size:.95rem;margin-bottom:.5rem}
+.hero-greeting span{color:var(--green)}
+.hero-name{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;font-family:sans-serif;line-height:1.1;margin-bottom:.5rem}
+.hero-name .first{color:var(--text)}
+.hero-name .last{color:var(--cyan);text-shadow:0 0 30px rgba(0,229,255,.35)}
+.hero-title{font-size:1.15rem;color:var(--purple);margin-bottom:1.5rem}
+.typewriter{border-right:2px solid var(--cyan);white-space:nowrap;overflow:hidden;animation:blink .7s step-end infinite}
+@keyframes blink{50%{border-color:transparent}}
+.hero-code{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;margin-bottom:2rem;font-size:.85rem;line-height:1.9}
+.c-kw{color:#f97583}.c-fn{color:#b392f0}.c-str{color:#9ecbff}.c-cm{color:var(--muted)}.c-var{color:#e1e4e8}.c-num{color:#f8c555}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{padding:.7rem 1.5rem;border-radius:6px;font-family:'Courier New',monospace;font-size:.9rem;cursor:pointer;text-decoration:none;transition:all .3s;display:inline-block}
+.btn-primary{background:var(--cyan);color:#0d0d14;font-weight:700;border:none}
+.btn-primary:hover{background:#00b8d9;transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--cyan);border:1px solid var(--cyan)}
+.btn-outline:hover{background:rgba(0,229,255,.1);transform:translateY(-2px)}
+
+section{padding:5rem 2rem;max-width:1000px;margin:0 auto}
+.section-header{margin-bottom:3rem}
+.section-label{color:var(--cyan);font-size:.8rem;letter-spacing:.15em;margin-bottom:.4rem}
+.section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;font-family:sans-serif;color:var(--text)}
+.section-title span{color:var(--purple)}
+.section-line{height:1px;background:linear-gradient(to right,var(--purple),transparent);margin-top:1rem}
+
+.terminal{background:#0a0a12;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.terminal-bar{background:var(--bg3);padding:.6rem 1rem;display:flex;align-items:center;gap:.5rem}
+.dot{width:12px;height:12px;border-radius:50%}
+.dot-r{background:#ff5f57}.dot-y{background:#ffbd2e}.dot-g{background:#28ca41}
+.terminal-title{color:var(--muted);font-size:.75rem;margin-left:.5rem}
+.terminal-body{padding:1.5rem;font-size:.88rem;line-height:2}
+.prompt{color:var(--green)}.cmd{color:var(--cyan)}.output{color:var(--text)}
+.tag-list{display:flex;flex-wrap:wrap;gap:.5rem;margin:.5rem 0}
+.tag{padding:.25rem .75rem;border-radius:20px;font-size:.75rem;border:1px solid}
+.tag-fe{color:#61dafb;border-color:#61dafb33;background:#61dafb11}
+.tag-be{color:#68d391;border-color:#68d39133;background:#68d39111}
+.tag-db{color:#f6ad55;border-color:#f6ad5533;background:#f6ad5511}
+.tag-tools{color:#b794f4;border-color:#b794f433;background:#b794f411}
+
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:transform .3s,border-color .3s}
+.project-card:hover{transform:translateY(-4px);border-color:var(--purple)}
+.card-header{padding:1.25rem 1.25rem .75rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.folder-icon{color:var(--cyan);font-size:1.2rem}
+.card-links a{color:var(--muted);text-decoration:none;font-size:.8rem;margin-left:.75rem;transition:color .3s}
+.card-links a:hover{color:var(--cyan)}
+.card-body{padding:1rem 1.25rem}
+.card-title{font-size:1rem;font-weight:700;font-family:sans-serif;color:var(--text);margin-bottom:.4rem}
+.card-desc{font-size:.82rem;color:var(--muted);line-height:1.6;font-family:sans-serif}
+.card-footer{padding:.75rem 1.25rem;display:flex;flex-wrap:wrap;gap:.4rem}
+.tech-badge{font-size:.7rem;color:var(--purple);background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.2);padding:.15rem .55rem;border-radius:4px}
+
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.skill-category{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.25rem}
+.skill-cat-title{font-size:.75rem;letter-spacing:.12em;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.skill-cat-title.fe{color:#61dafb}.skill-cat-title.be{color:#68d391}.skill-cat-title.db{color:#f6ad55}.skill-cat-title.tools{color:#b794f4}
+.skill-item{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem;font-size:.82rem}
+.skill-name{color:var(--text);font-family:sans-serif}
+.skill-bar-wrap{width:100px;height:5px;background:var(--border);border-radius:3px;overflow:hidden}
+.skill-bar{height:100%;border-radius:3px;animation:grow .8s ease forwards}
+@keyframes grow{from{width:0}}
+.bar-fe{background:linear-gradient(to right,#61dafb,#0ea5e9)}
+.bar-be{background:linear-gradient(to right,#68d391,#10b981)}
+.bar-db{background:linear-gradient(to right,#f6ad55,#f59e0b)}
+.bar-tools{background:linear-gradient(to right,#b794f4,#a855f7)}
+
+.contact-code{background:#0a0a12;border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:2rem;font-size:.88rem;line-height:2}
+.contact-links{display:flex;flex-wrap:wrap;gap:1rem}
+.contact-link{display:flex;align-items:center;gap:.5rem;padding:.7rem 1.25rem;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;font-size:.85rem;transition:all .3s}
+.contact-link:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px)}
+.contact-link svg{width:18px;height:18px;fill:currentColor}
+
+footer{text-align:center;padding:2rem;border-top:1px solid var(--border);color:var(--muted);font-size:.78rem}
+footer span{color:var(--cyan)}
+.full-divider{border:none;border-top:1px solid var(--border);margin:0}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">&lt;<span>MC</span> /&gt;</div>
+  <ul>
+    <li><a href="#about">./about</a></li>
+    <li><a href="#projects">./projects</a></li>
+    <li><a href="#skills">./skills</a></li>
+    <li><a href="#contact">./contact</a></li>
+  </ul>
+</nav>
+
+<div id="hero">
+  <div class="matrix-bg" id="matrixBg"></div>
+  <div class="hero-content">
+    <p class="hero-greeting">// Hello, world! <span>👋</span></p>
+    <div class="hero-name">
+      <div class="first">Marcelo</div>
+      <div class="last">Cambraia</div>
+    </div>
+    <div class="hero-title">&gt; <span class="typewriter" id="typewriter"></span></div>
+    <div class="hero-code">
+      <div><span class="c-cm">// my current stack</span></div>
+      <div><span class="c-kw">const</span> <span class="c-var">dev</span> = {</div>
+      <div>&nbsp;&nbsp;<span class="c-fn">frontend</span>: [<span class="c-str">"React"</span>, <span class="c-str">"React Native"</span>, <span class="c-str">"Angular"</span>, <span class="c-str">"JavaScript"</span>],</div>
+      <div>&nbsp;&nbsp;<span class="c-fn">backend</span>: [<span class="c-str">"C#"</span>, <span class="c-str">".NET"</span>, <span class="c-str">"PHP"</span>],</div>
+      <div>&nbsp;&nbsp;<span class="c-fn">database</span>: [<span class="c-str">"PostgreSQL"</span>, <span class="c-str">"MySQL"</span>, <span class="c-str">"SQL Server"</span>],</div>
+      <div>&nbsp;&nbsp;<span class="c-fn">devops</span>: [<span class="c-str">"Docker"</span>, <span class="c-str">"Kubernetes"</span>, <span class="c-str">"RabbitMQ"</span>, <span class="c-str">"REST APIs"</span>],</div>
+      <div>&nbsp;&nbsp;<span class="c-fn">status</span>: <span class="c-str">"open to new opportunities 🚀"</span></div>
+      <div>};</div>
+    </div>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-primary">view_projects()</a>
+      <a href="#contact" class="btn btn-outline">contact.init()</a>
+    </div>
+  </div>
+</div>
+
+<hr class="full-divider"/>
+
+<section id="about">
+  <div class="section-header">
+    <p class="section-label">// 01. about_me</p>
+    <h2 class="section-title">Who <span>I am</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+      <span class="terminal-title">marcelo@portfolio:~$</span>
+    </div>
+    <div class="terminal-body">
+      <div><span class="prompt">$ </span><span class="cmd">whoami</span></div>
+      <div class="output">Marcelo Cambraia — Software Developer | Brasília, Brazil</div>
+      <br/>
+      <div><span class="prompt">$ </span><span class="cmd">cat about.txt</span></div>
+      <div class="output">Passionate Fullstack Developer who loves solving complex</div>
+      <div class="output">problems and building robust applications from the ground up.</div>
+      <div class="output">Strong experience across the entire development lifecycle —</div>
+      <div class="output">from backend architectures to responsive frontends and</div>
+      <div class="output">cross-platform mobile apps from scratch.</div>
+      <br/>
+      <div><span class="prompt">$ </span><span class="cmd">cat what-i-do.txt</span></div>
+      <div class="output">► End-to-End Development: .NET backend + React/Angular frontend</div>
+      <div class="output">► Mobile Solutions: cross-platform apps with React Native</div>
+      <div class="output">► System Architecture: REST APIs, RabbitMQ, Docker, Kubernetes</div>
+      <div class="output">► Database Management: advanced SQL across Postgres/MySQL/MSSQL</div>
+      <div class="output">► Code Review & Troubleshooting: quality and reliability first</div>
+      <br/>
+      <div><span class="prompt">$ </span><span class="cmd">ls ./technologies/</span></div>
+      <div class="output">
+        <div class="tag-list">
+          <span class="tag tag-fe">React</span><span class="tag tag-fe">React Native</span><span class="tag tag-fe">Angular</span><span class="tag tag-fe">JavaScript</span><span class="tag tag-fe">HTML</span><span class="tag tag-fe">CSS</span>
+          <span class="tag tag-be">C# (.NET)</span><span class="tag tag-be">PHP</span>
+          <span class="tag tag-db">PostgreSQL</span><span class="tag tag-db">MySQL</span><span class="tag tag-db">SQL Server</span>
+          <span class="tag tag-tools">Docker</span><span class="tag tag-tools">Kubernetes</span><span class="tag tag-tools">RabbitMQ</span><span class="tag tag-tools">Git</span><span class="tag tag-tools">REST APIs</span>
+        </div>
+      </div>
+      <br/>
+      <div><span class="prompt">$ </span><span class="cmd">_</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider"/>
+
+<section id="projects">
+  <div class="section-header">
+    <p class="section-label">// 02. projects</p>
+    <h2 class="section-title">What I've <span>built</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="card-header">
+        <span class="folder-icon">◈</span>
+        <div class="card-links">
+          <a href="https://github.com/MarceloCambraia/pong-2d" target="_blank">{ gh }</a>
+          <a href="https://github.com/MarceloCambraia/pong-2d" target="_blank">↗ repo</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Pong 2D</div>
+        <div class="card-desc">Classic Pong game built with ASP.NET. A fun project to practice game logic and server-side rendering with C#.</div>
+      </div>
+      <div class="card-footer">
+        <span class="tech-badge">ASP.NET</span><span class="tech-badge">C#</span><span class="tech-badge">JavaScript</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-header">
+        <span class="folder-icon">◈</span>
+        <div class="card-links">
+          <a href="https://github.com/MarceloCambraia/DesafiosCSharp" target="_blank">{ gh }</a>
+          <a href="https://github.com/MarceloCambraia/DesafiosCSharp" target="_blank">↗ repo</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">C# Challenges</div>
+        <div class="card-desc">Collection of programming challenge solutions written in C#, covering algorithms, data structures and logic problems.</div>
+      </div>
+      <div class="card-footer">
+        <span class="tech-badge">C#</span><span class="tech-badge">.NET</span><span class="tech-badge">Algorithms</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-header">
+        <span class="folder-icon">◈</span>
+        <div class="card-links">
+          <a href="https://github.com/MarceloCambraia/HTML-Tutorial" target="_blank">{ gh }</a>
+          <a href="https://github.com/MarceloCambraia/HTML-Tutorial" target="_blank">↗ repo</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">HTML Tutorial</div>
+        <div class="card-desc">Structured HTML tutorial covering core concepts, semantic markup and best practices for modern web development.</div>
+      </div>
+      <div class="card-footer">
+        <span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">Web</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-header">
+        <span class="folder-icon">◈</span>
+        <div class="card-links">
+          <a href="https://github.com/MarceloCambraia/Tailwind-Tutorial" target="_blank">{ gh }</a>
+          <a href="https://github.com/MarceloCambraia/Tailwind-Tutorial" target="_blank">↗ repo</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Tailwind Tutorial</div>
+        <div class="card-desc">Practical examples and templates showcasing Tailwind CSS utility-first features and responsive design patterns.</div>
+      </div>
+      <div class="card-footer">
+        <span class="tech-badge">Tailwind CSS</span><span class="tech-badge">HTML</span><span class="tech-badge">Responsive</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-header">
+        <span class="folder-icon">◈</span>
+        <div class="card-links">
+          <a href="https://github.com/MarceloCambraia/CSS-Course" target="_blank">{ gh }</a>
+          <a href="https://github.com/MarceloCambraia/CSS-Course" target="_blank">↗ repo</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">CSS Course</div>
+        <div class="card-desc">Comprehensive CSS course with templates and exercises covering layouts, animations, flexbox and grid systems.</div>
+      </div>
+      <div class="card-footer">
+        <span class="tech-badge">CSS</span><span class="tech-badge">Flexbox</span><span class="tech-badge">Grid</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-header">
+        <span class="folder-icon">◈</span>
+        <div class="card-links">
+          <a href="https://github.com/MarceloCambraia" target="_blank">{ gh }</a>
+          <a href="https://github.com/MarceloCambraia" target="_blank">↗ more</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">More on GitHub</div>
+        <div class="card-desc">Check out my GitHub profile for more repositories, contributions and ongoing projects I'm currently working on.</div>
+      </div>
+      <div class="card-footer">
+        <span class="tech-badge">18+ repos</span><span class="tech-badge">Open Source</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="full-divider"/>
+
+<section id="skills">
+  <div class="section-header">
+    <p class="section-label">// 03. skills</p>
+    <h2 class="section-title">My <span>stack</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-category">
+      <div class="skill-cat-title fe">◆ FRONTEND & MOBILE</div>
+      <div class="skill-item"><span class="skill-name">React / React Native</span><div class="skill-bar-wrap"><div class="skill-bar bar-fe" style="width:90%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Angular</span><div class="skill-bar-wrap"><div class="skill-bar bar-fe" style="width:85%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">JavaScript</span><div class="skill-bar-wrap"><div class="skill-bar bar-fe" style="width:92%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">HTML / CSS</span><div class="skill-bar-wrap"><div class="skill-bar bar-fe" style="width:95%"></div></div></div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title be">◆ BACKEND</div>
+      <div class="skill-item"><span class="skill-name">C# (.NET)</span><div class="skill-bar-wrap"><div class="skill-bar bar-be" style="width:90%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">PHP</span><div class="skill-bar-wrap"><div class="skill-bar bar-be" style="width:78%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">REST APIs</span><div class="skill-bar-wrap"><div class="skill-bar bar-be" style="width:92%"></div></div></div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title db">◆ DATABASE</div>
+      <div class="skill-item"><span class="skill-name">PostgreSQL</span><div class="skill-bar-wrap"><div class="skill-bar bar-db" style="width:85%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">MySQL</span><div class="skill-bar-wrap"><div class="skill-bar bar-db" style="width:85%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">SQL Server</span><div class="skill-bar-wrap"><div class="skill-bar bar-db" style="width:82%"></div></div></div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title tools">◆ ARCHITECTURE & DEVOPS</div>
+      <div class="skill-item"><span class="skill-name">Docker</span><div class="skill-bar-wrap"><div class="skill-bar bar-tools" style="width:85%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Kubernetes</span><div class="skill-bar-wrap"><div class="skill-bar bar-tools" style="width:75%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">RabbitMQ</span><div class="skill-bar-wrap"><div class="skill-bar bar-tools" style="width:78%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Git / GitHub</span><div class="skill-bar-wrap"><div class="skill-bar bar-tools" style="width:95%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider"/>
+
+<section id="contact">
+  <div class="section-header">
+    <p class="section-label">// 04. contact</p>
+    <h2 class="section-title">Let's <span>connect</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-code">
+    <div><span class="c-cm">// Got a project in mind? Let's build something together.</span></div>
+    <div><span class="c-kw">const</span> <span class="c-var">contact</span> = <span class="c-kw">await</span> <span class="c-fn">connect</span>({</div>
+    <div>&nbsp;&nbsp;<span class="c-fn">available</span>: <span class="c-num">true</span>,</div>
+    <div>&nbsp;&nbsp;<span class="c-fn">responseTime</span>: <span class="c-str">"within 24h"</span>,</div>
+    <div>&nbsp;&nbsp;<span class="c-fn">openTo</span>: [<span class="c-str">"freelance"</span>, <span class="c-str">"collaborations"</span>, <span class="c-str">"new opportunities"</span>]</div>
+    <div>});</div>
+  </div>
+  <div class="contact-links">
+    <a href="mailto:marcelocambraiav@gmail.com" class="contact-link">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      marcelocambraiav@gmail.com
+    </a>
+    <a href="https://github.com/MarceloCambraia" target="_blank" class="contact-link">
+      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      MarceloCambraia
+    </a>
+    <a href="https://www.linkedin.com/in/marcelo-cambraia-villela-180860313/" target="_blank" class="contact-link">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      Marcelo Cambraia
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>built with <span>&lt;3&gt;</span> by <span>Marcelo Cambraia</span> // 2025</p>
+</footer>
+
+<script>
+const cols=['Angular','const','async','await','import','export','function','return','interface','class','CSharp','dotnet','string','void','Task','using','namespace','TypeScript','React','HTML','CSS','git','push','commit','SELECT','FROM','WHERE','JOIN','null','true','false'];
+const mb=document.getElementById('matrixBg');
+for(let i=0;i<18;i++){
+  const c=document.createElement('div');
+  c.className='matrix-col';
+  c.style.left=(i*5.5+Math.random()*3)+'%';
+  c.style.animationDuration=(8+Math.random()*12)+'s';
+  c.style.animationDelay=(-Math.random()*20)+'s';
+  let t='';
+  for(let j=0;j<30;j++) t+=cols[Math.floor(Math.random()*cols.length)]+'<br/>';
+  c.innerHTML=t;
+  mb.appendChild(c);
+}
+const phrases=['Software Developer','C# & Angular Enthusiast','Full Stack in the making','Open to new opportunities ✓','Building the web, one commit at a time'];
+let pi=0,ci=0,del=false;
+const tw=document.getElementById('typewriter');
+function type(){
+  const cur=phrases[pi];
+  if(!del){tw.textContent=cur.slice(0,ci+1);ci++;if(ci===cur.length){del=true;setTimeout(type,1800);return}}
+  else{tw.textContent=cur.slice(0,ci-1);ci--;if(ci===0){del=false;pi=(pi+1)%phrases.length}}
+  setTimeout(type,del?60:80);
+}
+type();
+</script>
+</body>
+</html>
