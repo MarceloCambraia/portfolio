@@ -347,6 +347,24 @@
         <div class="top">
           <span class="ico">◈</span>
           <div class="links">
+            <a href="https://github.com/MarceloCambraia/dotnet-reliable-messaging" target="_blank" rel="noopener">{ gh }</a>
+            <a href="https://github.com/MarceloCambraia/dotnet-reliable-messaging" target="_blank" rel="noopener">↗ repo</a>
+          </div>
+        </div>
+        <h3>Reliable Messaging — Transactional Outbox &amp; Idempotent Consumer</h3>
+        <div class="kind">// distributed systems · event-driven backend</div>
+        <p>An order service and an inventory worker that stay consistent through broker outages, duplicate deliveries and poison messages. Events are written to an <b>outbox table in the same transaction</b> as the order and published by a background worker using <b>FOR UPDATE SKIP LOCKED</b>, publisher confirms and exponential backoff; the consumer deduplicates through an <b>inbox table</b>, turning at-least-once delivery into an exactly-once effect. Built on raw RabbitMQ.Client with quorum queues, delayed retry tiers and a dead-letter queue, plus end-to-end tracing in Jaeger. Failure scenarios are proven by <b>Testcontainers integration tests</b> (broker down, duplicates, DLQ, concurrent publishers) and a chaos script, with CI and 87% coverage.</p>
+        <div class="tags">
+          <span class="tag">.NET 10</span><span class="tag">RabbitMQ</span><span class="tag">PostgreSQL</span>
+          <span class="tag">EF Core</span><span class="tag">MediatR</span><span class="tag">OpenTelemetry</span>
+          <span class="tag">Testcontainers</span><span class="tag">Docker Compose</span><span class="tag">GitHub Actions</span>
+        </div>
+      </div>
+
+      <div class="card wide">
+        <div class="top">
+          <span class="ico">◈</span>
+          <div class="links">
             <a href="https://github.com/MarceloCambraia/apabb-app" target="_blank" rel="noopener">{ gh }</a>
             <a href="https://github.com/MarceloCambraia/apabb-app" target="_blank" rel="noopener">↗ repo</a>
           </div>
