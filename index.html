@@ -267,7 +267,7 @@
       <div class="hello">// Hello, world!</div>
       <h1>Marcelo<br><span class="last">Cambraia</span></h1>
       <div class="role"><span class="cmt">$</span> <span class="typed" id="typed"></span><span class="cursor"></span></div>
-      <div class="meta">// Brasília, DF · Brazil — <span class="ac">open to remote &amp; hybrid roles</span></div>
+      <div class="meta">// Brasília, DF · Brazil — <span class="ac">open to remote roles (hybrid in Brasília)</span></div>
       <div class="cta">
         <a class="btn primary" href="#projects">view_projects()</a>
         <a class="btn ghost" href="#contact">contact.init()</a>
@@ -289,7 +289,7 @@
         <div class="codebar"><i></i><i></i><i></i><span>marcelo@portfolio: ~</span></div>
         <div class="term-body">
           <div class="grp"><span class="pl">$</span> <span class="cmd">whoami</span></div>
-          <p style="margin-top:6px;">Marcelo Cambraia Villela — Full Stack Developer (.NET / C# / Angular / React), Brasília, Brazil.</p>
+          <p style="margin-top:6px;">Marcelo Cambraia Villela — Full Stack Developer (.NET / C# / Angular / React), Brasília, Brazil. 2+ years building government software at scale.</p>
 
           <div class="grp"><span class="pl">$</span> <span class="cmd">cat summary.txt</span></div>
           <p>Full Stack Developer who builds and maintains production web applications end to end. My day-to-day spans a C# .NET backend (CQRS / MediatR, NHibernate, SQL Server) and an Angular / NgRx frontend, on a platform that serves over one million users. I like the hard parts — event-driven integrations with RabbitMQ, transactions and concurrency, payment and identity integrations, and root-cause analysis — guided by SOLID principles and Clean Code.</p>
@@ -323,12 +323,14 @@
           <h3>Full Stack Developer <span class="ac">@ CGDF</span></h3>
           <div class="exp-org">Office of the Comptroller General of the Federal District (Controladoria-Geral do DF) · Brasília, DF</div>
         </div>
-        <div class="exp-date">03/2025 — present</div>
+        <div class="exp-date">11/2024 — present</div>
       </div>
+      <div class="exp-org" style="margin-top:0;">Intern from 11/2024 to 02/2025 · hired full-time in 03/2025</div>
       <ul>
-        <li>Build and maintain <b>Participa DF</b>, a mission-critical government platform with <b>1M+ registered users</b>, using C# .NET (Web API) with a <b>CQRS / MediatR</b> architecture, NHibernate, SQL Server and an Angular frontend.</li>
+        <li>Build and maintain <b>Participa DF</b>, a mission-critical government platform with <b>1M+ registered users</b>, using C# .NET (ASP.NET MVC and Web API) with a <b>CQRS / MediatR</b> architecture and pragmatic <b>DDD</b>, NHibernate, SQL Server and AngularJS / Angular frontends.</li>
         <li>Designed and implemented from scratch an <b>event-driven asynchronous integration via RabbitMQ</b> (publish/subscribe) between two government systems, with dedicated queues, payload contracts and a dead-letter/retry strategy; evaluated the <b>Transactional Outbox</b> pattern for consistency between persistence and event publishing.</li>
         <li>Fixed a subtle <b>idempotency</b> issue caused by NHibernate auto-flush, and implemented transactional locking to restrict operations on an entity while awaiting an asynchronous response from an external system, preserving internal SLAs.</li>
+        <li>Maintained <b>MongoDB</b> services: an identity-verification service used in citizen authentication (integrated with .NET through <b>Polly</b> resilience policies and a distributed cache) and the unified search API of the DF Transparency Portal.</li>
         <li>Identified, through <b>decompilation</b>, that a third-party library was silently swallowing BackgroundService exceptions, masking real connectivity failures.</li>
         <li>Migrated features from <b>AngularJS to Angular</b>, preserving legacy behavior and business rules; implemented state management with <b>NgRx</b> (Actions, Reducers, Effects, Selectors).</li>
         <li>Implemented <b>Single Sign-On</b> with Gov.br (Brazil's federal identity provider) using OAuth 2.0 / OpenID Connect — Authorization Code Flow with PKCE.</li>
@@ -446,7 +448,7 @@
       </div>
       <div class="skillcard">
         <h4>BACK-END</h4>
-        <div class="chips"><span class="chip">.NET</span><span class="chip">ASP.NET Core</span><span class="chip">Web API</span><span class="chip">RESTful APIs</span><span class="chip">Microservices</span><span class="chip">RabbitMQ</span><span class="chip">CQRS / MediatR</span><span class="chip">NHibernate</span><span class="chip">EF Core</span><span class="chip">LINQ</span><span class="chip">Node.js</span></div>
+        <div class="chips"><span class="chip">.NET</span><span class="chip">ASP.NET Core</span><span class="chip">ASP.NET MVC</span><span class="chip">Web API</span><span class="chip">DDD</span><span class="chip">RESTful APIs</span><span class="chip">Microservices</span><span class="chip">RabbitMQ</span><span class="chip">CQRS / MediatR</span><span class="chip">NHibernate</span><span class="chip">EF Core</span><span class="chip">Dapper</span><span class="chip">Polly</span><span class="chip">LINQ</span><span class="chip">Node.js</span></div>
       </div>
       <div class="skillcard">
         <h4>FRONT-END</h4>
@@ -454,11 +456,11 @@
       </div>
       <div class="skillcard">
         <h4>DATABASES</h4>
-        <div class="chips"><span class="chip">SQL Server</span><span class="chip">T-SQL</span><span class="chip">PostgreSQL</span><span class="chip">Relational modeling</span></div>
+        <div class="chips"><span class="chip">SQL Server</span><span class="chip">T-SQL</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Relational modeling</span></div>
       </div>
       <div class="skillcard">
         <h4>INTEGRATIONS</h4>
-        <div class="chips"><span class="chip">Gov.br SSO</span><span class="chip">OAuth 2.0 / OIDC</span><span class="chip">PKCE</span><span class="chip">Banco do Brasil APIs</span><span class="chip">PIX</span><span class="chip">Boletos</span><span class="chip">mTLS</span><span class="chip">REST</span></div>
+        <div class="chips"><span class="chip">Gov.br SSO</span><span class="chip">OAuth 2.0 / OIDC</span><span class="chip">PKCE</span><span class="chip">OWASP Top 10</span><span class="chip">Banco do Brasil APIs</span><span class="chip">PIX</span><span class="chip">Boletos</span><span class="chip">mTLS</span><span class="chip">REST</span></div>
       </div>
       <div class="skillcard">
         <h4>CLOUD &amp; DEVOPS</h4>
@@ -470,7 +472,7 @@
       </div>
       <div class="skillcard">
         <h4>AI TOOLING</h4>
-        <div class="chips"><span class="chip">Claude</span><span class="chip">GitHub Copilot</span><span class="chip">Cursor</span><span class="chip">LLM integration (OpenRouter)</span></div>
+        <div class="chips"><span class="chip">Claude Code</span><span class="chip">GitHub Copilot</span><span class="chip">Cursor</span><span class="chip">LLM integration (OpenRouter)</span></div>
       </div>
       <div class="skillcard">
         <h4>EDUCATION</h4>
@@ -494,14 +496,14 @@
 <span class="kw">const</span> <span class="fn">contact</span> <span class="pn">=</span> <span class="kw">await</span> <span class="fn">connect</span><span class="pn">(</span><span class="pn">{</span><br>
 &nbsp;&nbsp;<span class="fn">available</span><span class="pn">:</span> <span class="num">true</span><span class="pn">,</span><br>
 &nbsp;&nbsp;<span class="fn">responseTime</span><span class="pn">:</span> <span class="str">"within 24h"</span><span class="pn">,</span><br>
-&nbsp;&nbsp;<span class="fn">openTo</span><span class="pn">:</span> <span class="pn">[</span><span class="str">"full-time"</span><span class="pn">,</span> <span class="str">"remote"</span><span class="pn">,</span> <span class="str">"hybrid"</span><span class="pn">],</span><br>
+&nbsp;&nbsp;<span class="fn">openTo</span><span class="pn">:</span> <span class="pn">[</span><span class="str">"full-time"</span><span class="pn">,</span> <span class="str">"remote"</span><span class="pn">,</span> <span class="str">"hybrid (Brasília)"</span><span class="pn">],</span><br>
 <span class="pn">}</span><span class="pn">);</span>
       </div>
     </div>
     <div class="clinks">
       <a class="btn primary" href="mailto:marcelocambraiav@gmail.com">marcelocambraiav@gmail.com</a>
-      <a class="btn ghost" href="resume-en.pdf" target="_blank" rel="noopener">Resume (EN)</a>
-      <a class="btn ghost" href="curriculo-pt.pdf" target="_blank" rel="noopener">Currículo (PT)</a>
+      <a class="btn ghost" href="Resume-Marcelo-Cambraia-Villela-EN.pdf" target="_blank" rel="noopener">Resume (EN)</a>
+      <a class="btn ghost" href="CV-Marcelo-Cambraia-Villela.pdf" target="_blank" rel="noopener">Currículo (PT)</a>
       <a class="btn ghost" href="https://github.com/MarceloCambraia" target="_blank" rel="noopener">GitHub</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/marcelocambraiadev/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
